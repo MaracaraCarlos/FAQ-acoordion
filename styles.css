@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Main Styling */
+:root {
+  --white-color: hsl(0, 0%, 100%);
+  --pink-light: hsl(275, 100%, 97%);
+  --purple-grayish: hsl(292, 16%, 49%);
+  --purple-dark: hsl(292, 42%, 14%);
+}
+
+body {
+  background: url('images/background-pattern-desktop.svg') no-repeat;
+  background-size: contain;
+  background-color: var(--pink-light);
+  font-family: 'Work Sans', sans-serif;
+}
+
+h1 {
+  text-align: justify;
+  color: var(--purple-dark);
+}
+
+h1::before{
+  contain: url(images/icon-star.svg);
+  position: absolute;
+}
+
+.acordion {
+  width: 800px;
+  margin: 90px auto;
+  background-color: white;
+  padding: 45px 45px;
+  border-radius: 20px;
+}
+
+.acordion .container {
+  position: relative;
+  margin: 10px 10px;
+}
+
+.acordion .label {
+  position: relative;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--purple-dark);
+  cursor: pointer;
+}
+
+.acordion .label::before {
+  content: url('images/icon-plus.svg');
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  font-size: 30px;
+  transform: translateY(-50%);
+}
+
+.acordion .content {
+  position: relative;
+  background: white;
+  height: 0;
+  font-size: 16px;
+  color: var(--purple-grayish);
+  text-align: justify;
+  width: 700px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.acordion hr {
+  width: 100;
+  margin-left: 0;
+  border: 1px solid grey;
+}
+
+/* Muestra la parte de contenido cuando está activa. Establece la altura */
+
+.acordion .container.active .content {
+  height: 150px;
+}
+
+/* Cambia de signo positivo a negativo una vez activado */
+
+.acordion .container.active .label::before {
+  content: url('images/icon-minus.svg');
+  font-size: 30px;
+}
